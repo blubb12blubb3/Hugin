@@ -11,7 +11,7 @@ bot = commands.Bot(command_prefix=None, intents=intents)
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game("ENTER YOUR ACTIVITY HERE"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game("Valheim"))
     print(f"{bot.user} is ready but not synced yet")
     slashsync = await bot.tree.sync()
     print(f"{len(slashsync)} commands synced.")
