@@ -7,7 +7,7 @@ class Ping(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(name="ping", description="Check the ping of the bot")
+    @app_commands.command(name="ping", description="Check the ping of Hugin")
     async def ping(self, interaction: discord.Interaction):
         try:
             await interaction.response.send_message(f'Pong! I needed {round (self.bot.latency * 1000)} ms to respond')
