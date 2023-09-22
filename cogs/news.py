@@ -8,7 +8,7 @@ class News(commands.Cog):
 
     @app_commands.command(name="news", description="Link to the Valheim News Page on Steam")
     async def news(self, interaction: discord.Interaction):
-        await interaction.response.send_message("This Command is still in development.", ephemeral=True)
+        await interaction.response.send_message("https://store.steampowered.com/news/app/892970", ephemeral=True)
 
 async def setup(bot):
     await bot.add_cog(News(bot))
