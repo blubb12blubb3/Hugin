@@ -8,7 +8,7 @@ class Soundtrack(commands.Cog):
 
     @app_commands.command(name="soundtrack", description="Link to the Official Valheim Soundtrack")
     async def soundtrack(self, interaction: discord.Interaction):
-        await interaction.response.send_message("This Command is still in development.", ephemeral=True)
+        await interaction.response.send_message("https://open.spotify.com/album/1z88vSQpgou5ONniYxJgZR?si=aWB62lAWQG6JtY29BPicpA", ephemeral=True)
 
 async def setup(bot):
     await bot.add_cog(Soundtrack(bot))
