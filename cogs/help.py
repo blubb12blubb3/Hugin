@@ -16,10 +16,10 @@ class Help(commands.Cog):
         embed.add_field(name="Entertainment", value="""/music - Links to music
                         /quest - Random quests""", inline=False)
         #Official
-        embed.add_field(name="Official", value="""/discord - Discord Server
-                        /game - Website 
-                        /soundtrack - Official Game Soundtrack 
-                        /news - Updates from the developers
+        embed.add_field(name="Official Valheim Content", value="""/discord - Discord Server Invite
+                        /website - Website
+                        /soundtrack - Soundtrack
+                        /news - Updates
                         /steam - Steam Page""", inline=False)
         
         embed.add_field(name="", value="[Bot Support Discord Server](https://discord.gg/DF6HRjzzRh)", inline=True)
