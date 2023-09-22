@@ -27,7 +27,7 @@ class Help(commands.Cog):
 
         embed.set_thumbnail(url=self.bot.user.avatar.url)
         embed.set_footer(text=interaction.user,icon_url=interaction.user.avatar.url)
-        await interaction.response.send_message(embed=embed)
+        await interaction.response.send_message(embed=embed, ephemeral=True)
 
 async def setup(bot):
     await bot.add_cog(Help(bot))
