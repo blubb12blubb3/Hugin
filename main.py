@@ -14,8 +14,9 @@ async def on_ready():
     await bot.change_presence(activity=discord.CustomActivity(name=f"Helping {len(bot.users)} Players on their Valheim Journey"))
     print(f"{bot.user} is ready but not synced yet")
     update_status.start()
+    print(f"{bot.user} started activity update cycle")
     slashsync = await bot.tree.sync()
-    print(f"{len(slashsync)} commands synced.")
+    print(f"{bot.user} synced {len(slashsync)} commands.")
 
 async def load_extensions():
     for filename in os.listdir("./cogs"):
