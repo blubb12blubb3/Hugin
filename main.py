@@ -3,7 +3,7 @@ from discord.ext import commands
 from discord.ext import tasks
 import asyncio
 import os
-from tk import TOKEN
+from config import TOKEN
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=None, intents=intents)

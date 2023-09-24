@@ -1,3 +1,4 @@
-tk.py
+config.py
 __pycache__/
 cogs/__pycache__/
+.cache
