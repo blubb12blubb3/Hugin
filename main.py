@@ -19,7 +19,7 @@ async def on_ready():
     print(f"{bot.user} synced {len(slashsync)} commands.")
 
 async def load_extensions():
-    for filename in os.listdir("./cogs"):
+    for filename in os.listdir("./Hugin/cogs"):
         if filename.endswith(".py") and filename != "__init__.py":
             await bot.load_extension(f"cogs.{filename[:-3]}")
 
