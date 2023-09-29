@@ -19,9 +19,17 @@ async def on_ready():
     print(f"{bot.user} synced {len(slashsync)} commands.")
 
 async def load_extensions():
-    for filename in os.listdir("./Hugin/cogs"):
-        if filename.endswith(".py") and filename != "__init__.py":
-            await bot.load_extension(f"cogs.{filename[:-3]}")
+    async def load_cogs(dir):
+        for filename in os.listdir(dir):
+                if filename.endswith(".py") and filename != "__init__.py":
+                    await bot.load_extension(f"cogs.{filename[:-3]}")
+        print(f"Cogs loaded from {dir}")
+    dir1 = "./Hugin/cogs"
+    dir2 = "./cogs"
+    if os.path.exists(dir1):
+        await load_cogs(dir1)
+    elif os.path.exists(dir2):
+        await load_cogs(dir2)
 
 @tasks.loop(seconds = 100)
 async def update_status():
