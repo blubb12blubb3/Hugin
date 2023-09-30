@@ -13,8 +13,7 @@ class Help(commands.Cog):
         embed.add_field(name="Guide", value="""/wiki - Search about anything on the Valheim Wiki 
                         /help - Well, it does this...""", inline=False)
         #Entertainment
-        embed.add_field(name="Entertainment", value="""/music - Links to music
-                        /quest - Random quests""", inline=False)
+        embed.add_field(name="Entertainment", value="""/music - Links to music""", inline=False)
         #Official
         embed.add_field(name="Official Valheim Content", value="""/discord - Discord Server Invite
                         /website - Website
