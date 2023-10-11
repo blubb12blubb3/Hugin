@@ -8,7 +8,7 @@ class Wiki(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    @app_commands.command(name="wiki", description="Search a Fandom Wiki")
+    @app_commands.command(name="wiki", description="Search the Valheim Fandom Wiki")
     async def wiki(self, interaction: discord.Interaction, search: str, amount_of_results: int = None):
         #Config
         wikiname = "Valheim"
