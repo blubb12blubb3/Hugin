@@ -23,11 +23,14 @@ class Wiki(commands.Cog):
     async def wiki(self, interaction: discord.Interaction, search: str, language: app_commands.Choice[str] = 'en'):
         #Config
         wikiname = "Valheim"
-
+        
         #set wiki
         fandomname = wikiname.lower().replace(" ","")
         fandom.set_wiki(fandomname)
-        fandom.set_lang(language.value)
+
+        if language != 'en':
+            language = language.value
+        fandom.set_lang(language)
 
         results = 3
         
@@ -111,7 +114,11 @@ class Wiki(commands.Cog):
             page = fandom.page(pageid = numbers[user_reaction - 1])
 
             page_title = page.title.replace(' ', '_')
-            base_url = f"https://{fandomname}.fandom.com/{language.value}/wiki/{page_title}#"
+
+            if language == 'en':
+                base_url = f"https://{fandomname}.fandom.com/wiki/{page_title}#"
+            else:
+                base_url = f"https://{fandomname}.fandom.com/{language}/wiki/{page_title}#"
             
             input_list = page.sections
             hyper_list = [f"[{item}]({base_url}{item.replace(' ', '_')})" for item in input_list]
