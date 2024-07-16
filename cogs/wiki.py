@@ -9,23 +9,27 @@ class Wiki(commands.Cog):
         self.bot = bot
     
     @app_commands.command(name="wiki", description="Search the Valheim Fandom Wiki")
-    async def wiki(self, interaction: discord.Interaction, search: str, amount_of_results: int = None):
+#Language Choice
+    @app_commands.choices(language=[
+        app_commands.Choice(name="Čeština", value="cs"),
+        app_commands.Choice(name="Deutsch", value="de"),
+        app_commands.Choice(name="Français", value="fr"),
+        app_commands.Choice(name="Polski", value="pl"),
+        app_commands.Choice(name="Português do Brasil", value="pt-br"),
+        app_commands.Choice(name="Русский", value="ru"),
+        app_commands.Choice(name="Українська", value="uk"),])
+
+
+    async def wiki(self, interaction: discord.Interaction, search: str, language: app_commands.Choice[str] = 'en'):
         #Config
         wikiname = "Valheim"
 
         #set wiki
         fandomname = wikiname.lower().replace(" ","")
         fandom.set_wiki(fandomname)
-        
-        #amount of results reduced to 1 - 10
-        if amount_of_results == None:
-            results = 3
-        elif amount_of_results >= 9:
-            results = 9
-        elif amount_of_results <= 1:
-            results = 1
-        else:
-            results = amount_of_results
+        fandom.set_lang(language.value)
+
+        results = 3
         
         try:
             #fandom search
@@ -107,7 +111,7 @@ class Wiki(commands.Cog):
             page = fandom.page(pageid = numbers[user_reaction - 1])
 
             page_title = page.title.replace(' ', '_')
-            base_url = f"https://{fandomname}.fandom.com/wiki/{page_title}#"
+            base_url = f"https://{fandomname}.fandom.com/{language.value}/wiki/{page_title}#"
             
             input_list = page.sections
             hyper_list = [f"[{item}]({base_url}{item.replace(' ', '_')})" for item in input_list]
@@ -129,8 +133,7 @@ class Wiki(commands.Cog):
             await interaction.edit_original_response(embed=contentEmbed)
         except Exception as e:
             await interaction.delete_original_response()
-            await interaction.followup.send(content=f"The Fandom API could not retrieve information from the site.\n Here is the link: \n {base_url[:-1]}")
-            #print(e)
+            await interaction.followup.send(content=f"Error: \n{e} \nHere is the link: \n{base_url[:-1]}")
 
 async def setup(bot):
     await bot.add_cog(Wiki(bot))
