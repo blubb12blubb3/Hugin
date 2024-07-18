@@ -8,7 +8,7 @@ class Info(commands.Cog):
 
     @app_commands.command(name="info", description="Shows info about this bot")
     async def info(self, interaction: discord.Interaction):
-        await interaction.response.send_message("I am still in development. I will help you on your Valheim Journey in the future.", ephemeral=True)
+        await interaction.response.send_message("I am still in development. I will help you on your Valheim Journey in the future. Join this Server for updates: https://discord.gg/DF6HRjzzRh")
 
 
 async def setup(bot):
