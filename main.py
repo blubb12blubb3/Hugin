@@ -33,7 +33,7 @@ async def load_extensions():
 
 @tasks.loop(seconds = 100)
 async def update_status():
-    await bot.change_presence(activity=discord.CustomActivity(name=f"Helping {len(bot.users)} Players on their Valheim Journey"))
+    await bot.change_presence(activity=discord.CustomActivity(name=f"Helping {len(bot.guilds)} Servers on their Valheim Journey"))
 
 async def main():
     async with bot:
